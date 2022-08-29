@@ -35,7 +35,7 @@ defmodule AppWeb.Router do
     if Mix.env() in [:dev, :test] do
       pipe_through :browser
     else
-      pipe_through [:browser, :admins_only]
+      pipe_through [:browser, :admin_only]
     end
 
     live_dashboard "/dashboard", metrics: AppWeb.Telemetry, ecto_repos: [App.Repo]
