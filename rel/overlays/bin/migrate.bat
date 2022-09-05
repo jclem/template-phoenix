@@ -1,1 +1,1 @@
-call "%~dp0\app" eval App.Release.migrate
+call "%~dp0\phoenix_template" eval PhoenixTemplate.Release.migrate

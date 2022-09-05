@@ -11,7 +11,7 @@ defmodule App do
       import Ecto.Changeset
       import Ecto.Query, warn: false
       import Ecto
-      alias App.Repo
+      alias PhoenixTemplate.Repo
     end
   end
 

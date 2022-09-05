@@ -1,12 +1,12 @@
-defmodule AppWeb do
+defmodule PhoenixTemplateWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use AppWeb, :controller
-      use AppWeb, :view
+      use PhoenixTemplateWeb, :controller
+      use PhoenixTemplateWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule AppWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: AppWeb
+      use Phoenix.Controller, namespace: PhoenixTemplateWeb
 
       import Plug.Conn
-      import AppWeb.Gettext
-      alias AppWeb.Router.Helpers, as: Routes
+      import PhoenixTemplateWeb.Gettext
+      alias PhoenixTemplateWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/app_web/templates",
-        namespace: AppWeb
+        root: "lib/phoenix_template_web/templates",
+        namespace: PhoenixTemplateWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule AppWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {AppWeb.LayoutView, "live.html"}
+        layout: {PhoenixTemplateWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -80,7 +80,7 @@ defmodule AppWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import AppWeb.Gettext
+      import PhoenixTemplateWeb.Gettext
     end
   end
 
@@ -95,9 +95,9 @@ defmodule AppWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import AppWeb.ErrorHelpers
-      import AppWeb.Gettext
-      alias AppWeb.Router.Helpers, as: Routes
+      import PhoenixTemplateWeb.ErrorHelpers
+      import PhoenixTemplateWeb.Gettext
+      alias PhoenixTemplateWeb.Router.Helpers, as: Routes
     end
   end
 

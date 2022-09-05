@@ -1,11 +1,11 @@
-defmodule AppWeb.Router do
-  use AppWeb, :router
+defmodule PhoenixTemplateWeb.Router do
+  use PhoenixTemplateWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {AppWeb.LayoutView, :root}
+    plug :put_root_layout, {PhoenixTemplateWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -18,14 +18,14 @@ defmodule AppWeb.Router do
     plug :admin_basic_auth
   end
 
-  scope "/", AppWeb do
+  scope "/", PhoenixTemplateWeb do
     pipe_through :browser
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", AppWeb do
+  # scope "/api", PhoenixTemplateWeb do
   #   pipe_through :api
   # end
 
@@ -38,7 +38,9 @@ defmodule AppWeb.Router do
       pipe_through [:browser, :admin_only]
     end
 
-    live_dashboard "/dashboard", metrics: AppWeb.Telemetry, ecto_repos: [App.Repo]
+    live_dashboard "/dashboard",
+      metrics: PhoenixTemplateWeb.Telemetry,
+      ecto_repos: [PhoenixTemplate.Repo]
   end
 
   # Enables the Swoosh mailbox preview in development.
