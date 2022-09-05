@@ -1,6 +1,6 @@
-defmodule App do
+defmodule PhoenixTemplate do
   @moduledoc """
-  App keeps the contexts that define your domain
+  PhoenixTemplate keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
