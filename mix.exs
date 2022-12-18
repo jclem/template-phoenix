@@ -33,23 +33,23 @@ defmodule PhoenixTemplate.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.6.11"},
+      {:phoenix, "~> 1.6.15"},
       {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.6"},
+      {:ecto_sql, "~> 3.9"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 3.0"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.17.5"},
-      {:floki, ">= 0.30.0", only: :test},
-      {:phoenix_live_dashboard, "~> 0.6"},
-      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
-      {:swoosh, "~> 1.3"},
+      {:phoenix_html, "~> 3.2"},
+      {:phoenix_live_reload, "~> 1.4", only: :dev},
+      {:phoenix_live_view, "~> 0.18.3"},
+      {:floki, ">= 0.34.0", only: :test},
+      {:phoenix_live_dashboard, "~> 0.7.2"},
+      {:esbuild, "~> 0.6", runtime: Mix.env() == :dev},
+      {:swoosh, "~> 1.9"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
-      {:gettext, "~> 0.18"},
-      {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"},
-      {:ecto_psql_extras, "~> 0.6"},
+      {:gettext, "~> 0.20"},
+      {:jason, "~> 1.4"},
+      {:plug_cowboy, "~> 2.6"},
+      {:ecto_psql_extras, "~> 0.7"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end
