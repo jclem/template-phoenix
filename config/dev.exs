@@ -10,6 +10,12 @@ config :phx_app_template, PhxAppTemplate.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+# Configure os_mon
+config :os_mon,
+  start_cpu_sup: false,
+  start_disksup: false,
+  start_memsup: false
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

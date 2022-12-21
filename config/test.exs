@@ -13,6 +13,12 @@ config :phx_app_template, PhxAppTemplate.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
+# Configure os_mon
+config :os_mon,
+  start_cpu_sup: false,
+  start_disksup: false,
+  start_memsup: false
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :phx_app_template, PhxAppTemplateWeb.Endpoint,
