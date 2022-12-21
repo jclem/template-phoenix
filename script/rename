@@ -15,10 +15,10 @@ if [ -z "$otp_app_name" ]; then
   exit 1
 fi
 
-# Replace phoenix_template with $otp_app_name in all file or directory names.
-find . -depth -name "*phoenix_template*" -execdir bash -c 'mv "$1" "${1//phoenix_template/$2}"' bash {} $otp_app_name \;
+# Replace phx_app_template with $otp_app_name in all file or directory names.
+find . -depth -name "*phx_app_template*" -execdir bash -c 'mv "$1" "${1//phx_app_template/$2}"' bash {} $otp_app_name \;
 
-# Replace PhoenixTemplate with $module_name in all file contents.
+# Replace PhxAppTemplate with $module_name in all file contents.
 find . -type f \
   -not -path "./.git/*" \
   -not -path "./deps/*" \
@@ -27,9 +27,9 @@ find . -type f \
   -not -path "./script/*" \
   -not -path "./priv/static/*" \
   -not -path "./assets/node_modules/*" \
-  -exec sed -i '' -e "s/PhoenixTemplate/$module_name/g" {} \;
+  -exec sed -i '' -e "s/PhxAppTemplate/$module_name/g" {} \;
 
-# Replace phoenix_template with $otp_app_name in all file contents.
+# Replace phx_app_template with $otp_app_name in all file contents.
 find . -type f \
   -not -path "./.git/*" \
   -not -path "./deps/*" \
@@ -38,4 +38,4 @@ find . -type f \
   -not -path "./script/*" \
   -not -path "./priv/static/*" \
   -not -path "./assets/node_modules/*" \
-  -exec sed -i '' -e "s/phoenix_template/$otp_app_name/g" {} \;
+  -exec sed -i '' -e "s/phx_app_template/$otp_app_name/g" {} \;
