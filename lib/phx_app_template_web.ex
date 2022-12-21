@@ -1,12 +1,12 @@
-defmodule PhoenixTemplateWeb do
+defmodule PhxAppTemplateWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use PhoenixTemplateWeb, :controller
-      use PhoenixTemplateWeb, :view
+      use PhxAppTemplateWeb, :controller
+      use PhxAppTemplateWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule PhoenixTemplateWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: PhoenixTemplateWeb
+      use Phoenix.Controller, namespace: PhxAppTemplateWeb
 
       import Plug.Conn
-      import PhoenixTemplateWeb.Gettext
-      alias PhoenixTemplateWeb.Router.Helpers, as: Routes
+      import PhxAppTemplateWeb.Gettext
+      alias PhxAppTemplateWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/phoenix_template_web/templates",
-        namespace: PhoenixTemplateWeb
+        root: "lib/phx_app_template_web/templates",
+        namespace: PhxAppTemplateWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule PhoenixTemplateWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {PhoenixTemplateWeb.LayoutView, "live.html"}
+        layout: {PhxAppTemplateWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -80,7 +80,7 @@ defmodule PhoenixTemplateWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import PhoenixTemplateWeb.Gettext
+      import PhxAppTemplateWeb.Gettext
     end
   end
 
@@ -95,9 +95,9 @@ defmodule PhoenixTemplateWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import PhoenixTemplateWeb.ErrorHelpers
-      import PhoenixTemplateWeb.Gettext
-      alias PhoenixTemplateWeb.Router.Helpers, as: Routes
+      import PhxAppTemplateWeb.ErrorHelpers
+      import PhxAppTemplateWeb.Gettext
+      alias PhxAppTemplateWeb.Router.Helpers, as: Routes
     end
   end
 

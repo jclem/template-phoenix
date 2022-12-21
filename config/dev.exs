@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :phoenix_template, PhoenixTemplate.Repo,
+config :phx_app_template, PhxAppTemplate.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "phoenix_template_dev",
+  database: "phx_app_template_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -16,7 +16,7 @@ config :phoenix_template, PhoenixTemplate.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :phoenix_template, PhoenixTemplateWeb.Endpoint,
+config :phx_app_template, PhxAppTemplateWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
@@ -55,13 +55,13 @@ config :phoenix_template, PhoenixTemplateWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :phoenix_template, PhoenixTemplateWeb.Endpoint,
+config :phx_app_template, PhxAppTemplateWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/phoenix_template_web/(live|views)/.*(ex)$",
-      ~r"lib/phoenix_template_web/templates/.*(eex)$"
+      ~r"lib/phx_app_template_web/(live|views)/.*(ex)$",
+      ~r"lib/phx_app_template_web/templates/.*(eex)$"
     ]
   ]
 

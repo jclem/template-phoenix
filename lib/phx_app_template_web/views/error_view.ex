@@ -1,5 +1,5 @@
-defmodule PhoenixTemplateWeb.ErrorView do
-  use PhoenixTemplateWeb, :view
+defmodule PhxAppTemplateWeb.ErrorView do
+  use PhxAppTemplateWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

@@ -7,15 +7,15 @@
 # General application configuration
 import Config
 
-config :phoenix_template,
-  ecto_repos: [PhoenixTemplate.Repo],
+config :phx_app_template,
+  ecto_repos: [PhxAppTemplate.Repo],
   generators: [binary_id: true]
 
 # Configures the endpoint
-config :phoenix_template, PhoenixTemplateWeb.Endpoint,
+config :phx_app_template, PhxAppTemplateWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: PhoenixTemplateWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: PhoenixTemplate.PubSub,
+  render_errors: [view: PhxAppTemplateWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: PhxAppTemplate.PubSub,
   live_view: [signing_salt: "8nMIU/pZ"]
 
 config :tailwind,
@@ -36,7 +36,7 @@ config :tailwind,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :phoenix_template, PhoenixTemplate.Mailer, adapter: Swoosh.Adapters.Local
+config :phx_app_template, PhxAppTemplate.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

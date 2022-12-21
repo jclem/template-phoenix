@@ -89,7 +89,7 @@ ENV ECTO_IPV6 true
 ENV ERL_AFLAGS "-proto_dist inet6_tcp"
 
 # Only copy the final release from the build stage
-COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/phoenix_template ./
+COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/phx_app_template ./
 
 USER nobody
 

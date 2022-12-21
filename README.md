@@ -2,7 +2,7 @@
 
 This is a template repository for Phoenix apps deployed to Fly.io
 
-This app has a default name and module, "PhoenixTemplate" and a script in
+This app has a default name and module, "PhxAppTemplate" and a script in
 `script/rename` for changing it.
 
 Provide a module name followed by an app name to rename it:
@@ -27,7 +27,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 - Node name generated from Fly app and IP
 - LiveDashboard enabled via basic auth in production
 - script/observer for opening observer on the running app
-- Other small ergonomic changes (e.g. `use PhoenixTemplate, :schema`, see `phoenix_template.ex`)
+- Other small ergonomic changes (e.g. `use PhxAppTemplate, :schema`, see `phx_app_template.ex`)
 
 ## Learn more
 

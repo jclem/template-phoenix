@@ -1,6 +1,6 @@
-defmodule PhoenixTemplate do
+defmodule PhxAppTemplate do
   @moduledoc """
-  PhoenixTemplate keeps the contexts that define your domain
+  PhxAppTemplate keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
@@ -11,7 +11,7 @@ defmodule PhoenixTemplate do
       import Ecto.Changeset
       import Ecto.Query, warn: false
       import Ecto
-      alias PhoenixTemplate.Repo
+      alias PhxAppTemplate.Repo
     end
   end
 

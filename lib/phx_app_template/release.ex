@@ -1,9 +1,9 @@
-defmodule PhoenixTemplate.Release do
+defmodule PhxAppTemplate.Release do
   @moduledoc """
   Used for executing DB release tasks when run in production without Mix
   installed.
   """
-  @app :phoenix_template
+  @app :phx_app_template
 
   def migrate do
     load_app()
