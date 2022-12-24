@@ -8,8 +8,7 @@
 import Config
 
 config :phx_app_template,
-  ecto_repos: [PhxAppTemplate.Repo],
-  generators: [binary_id: true]
+  ecto_repos: [PhxAppTemplate.Repo]
 
 # Configures the endpoint
 config :phx_app_template, PhxAppTemplateWeb.Endpoint,
@@ -40,6 +39,9 @@ config :phx_app_template, PhxAppTemplate.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
+
+# Use timestamptz
+config :app, App.Repo, migration_timestamps: [type: :timestamptz]
 
 # Configure esbuild (the version is required)
 config :esbuild,

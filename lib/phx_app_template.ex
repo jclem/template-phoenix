@@ -19,8 +19,10 @@ defmodule PhxAppTemplate do
     quote do
       use Ecto.Schema
       import Ecto.Changeset
-      @primary_key {:id, :binary_id, autogenerate: true}
-      @foreign_key_type :binary_id
+      import Ecto.Query
+      @timestamps_opts [type: :utc_datetime]
+      @type t :: %__MODULE__{}
+      @type changeset :: Ecto.Changeset.t(t)
     end
   end
 
