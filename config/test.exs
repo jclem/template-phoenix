@@ -19,6 +19,10 @@ config :os_mon,
   start_disksup: false,
   start_memsup: false
 
+config :phx_app_template, PhxAppTemplateWeb.Endpoint,
+  admin_username: "admin",
+  admin_password: "password"
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :phx_app_template, PhxAppTemplateWeb.Endpoint,

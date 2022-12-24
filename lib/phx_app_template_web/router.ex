@@ -56,8 +56,17 @@ defmodule PhxAppTemplateWeb.Router do
   end
 
   defp admin_basic_auth(conn, _opts) do
-    username = System.fetch_env!("ADMIN_USERNAME")
-    password = System.fetch_env!("ADMIN_PASSWORD")
-    Plug.BasicAuth.basic_auth(conn, username: username, password: password)
+    username = PhxAppTemplateWeb.Endpoint.admin_username()
+    password = PhxAppTemplateWeb.Endpoint.admin_password()
+
+    conn
+    |> Plug.BasicAuth.basic_auth(username: username, password: password)
+    |> case do
+      conn = %Plug.Conn{halted: true} ->
+        conn
+
+      conn ->
+        assign(conn, :is_admin, true)
+    end
   end
 end

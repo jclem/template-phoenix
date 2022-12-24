@@ -47,4 +47,16 @@ defmodule PhxAppTemplateWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug PhxAppTemplateWeb.Router
+
+  def admin_username do
+    :phx_app_template
+    |> Application.fetch_env!(__MODULE__)
+    |> Access.fetch!(:admin_username)
+  end
+
+  def admin_password do
+    :phx_app_template
+    |> Application.fetch_env!(__MODULE__)
+    |> Access.fetch!(:admin_password)
+  end
 end

@@ -16,6 +16,10 @@ config :os_mon,
   start_disksup: false,
   start_memsup: false
 
+config :phx_app_template, PhxAppTemplateWeb.Endpoint,
+  admin_username: "admin",
+  admin_password: "password"
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

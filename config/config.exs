@@ -41,7 +41,7 @@ config :phx_app_template, PhxAppTemplate.Mailer, adapter: Swoosh.Adapters.Local
 config :swoosh, :api_client, false
 
 # Use timestamptz
-config :app, App.Repo, migration_timestamps: [type: :timestamptz]
+config :phx_app_template, PhxAppTemplate.Repo, migration_timestamps: [type: :timestamptz]
 
 # Configure esbuild (the version is required)
 config :esbuild,

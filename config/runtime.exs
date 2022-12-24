@@ -63,6 +63,10 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+  config :phx_app_template, PhxAppTemplateWeb.Endpoint,
+    admin_username: System.fetch_env!("ADMIN_USERNAME"),
+    admin_password: System.fetch_env!("ADMIN_PASSWORD")
+
   # ## Configuring the mailer
   #
   # In production you need to configure the mailer to use a different adapter.
