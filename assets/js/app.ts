@@ -15,10 +15,10 @@
 //     import "some-package"
 //
 
+import {topbar} from '@jclem/topbar'
 import {Socket} from 'phoenix'
 import 'phoenix_html'
 import {LiveSocket} from 'phoenix_live_view'
-import {Topbar} from './topbar'
 
 const csrfToken = document
   .querySelector("meta[name='csrf-token']")
@@ -29,13 +29,13 @@ const liveSocket = new LiveSocket('/live', Socket, {
 })
 
 // Show progress bar on live navigation and form submits
-const topbar = new Topbar({
-  barColors: new Map([[0, '#29d']]),
+topbar.config({
+  barColors: {'0': '#29d'},
   shadowColor: 'rgba(0, 0, 0, .3)'
 })
 
-window.addEventListener('phx:page-loading-start', info => topbar.show())
-window.addEventListener('phx:page-loading-stop', info => topbar.hide())
+window.addEventListener('phx:page-loading-start', () => topbar.delayedShow(200))
+window.addEventListener('phx:page-loading-stop', () => topbar.hide())
 
 // connect if there are any LiveViews on the page
 liveSocket.connect()
