@@ -1,6 +1,3 @@
-# fly.toml file generated for small-snowflake-7205 on 2022-08-29T14:38:25-04:00
-
-app = "small-snowflake-7205"
 kill_signal = "SIGTERM"
 kill_timeout = 5
 processes = []
@@ -9,7 +6,6 @@ processes = []
   release_command = "/app/bin/migrate"
 
 [env]
-  PHX_HOST = "small-snowflake-7205.fly.dev"
   PORT = "8080"
 
 [experimental]

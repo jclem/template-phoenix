@@ -5,7 +5,7 @@ defmodule PhxAppTemplateWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {PhxAppTemplateWeb.LayoutView, :root}
+    plug :put_root_layout, {PhxAppTemplateWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -21,7 +21,7 @@ defmodule PhxAppTemplateWeb.Router do
   scope "/", PhxAppTemplateWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
@@ -43,11 +43,8 @@ defmodule PhxAppTemplateWeb.Router do
       ecto_repos: [PhxAppTemplate.Repo]
   end
 
-  # Enables the Swoosh mailbox preview in development.
-  #
-  # Note that preview only shows emails that were sent by the same
-  # node running the Phoenix server.
-  if Mix.env() == :dev do
+  # Enable Swoosh mailbox preview in development
+  if Application.compile_env(:phx_app_template, :dev_routes) do
     scope "/dev" do
       pipe_through :browser
 
@@ -62,7 +59,7 @@ defmodule PhxAppTemplateWeb.Router do
     conn
     |> Plug.BasicAuth.basic_auth(username: username, password: password)
     |> case do
-      conn = %Plug.Conn{halted: true} ->
+      %Plug.Conn{halted: true} = conn ->
         conn
 
       conn ->

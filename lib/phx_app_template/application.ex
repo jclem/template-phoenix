@@ -8,12 +8,14 @@ defmodule PhxAppTemplate.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      PhxAppTemplate.Repo,
       # Start the Telemetry supervisor
       PhxAppTemplateWeb.Telemetry,
+      # Start the Ecto repository
+      PhxAppTemplate.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: PhxAppTemplate.PubSub},
+      # Start Finch
+      {Finch, name: PhxAppTemplate.Finch},
       # Start the Endpoint (http/https)
       PhxAppTemplateWeb.Endpoint
       # Start a worker by calling: PhxAppTemplate.Worker.start_link(arg)

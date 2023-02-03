@@ -12,12 +12,20 @@
 #   - https://pkgs.org/ - resource for finding needed packages
 #   - Ex: hexpm/elixir:1.13.4-erlang-25.0.4-debian-bullseye-20210902-slim
 #
-ARG ELIXIR_VERSION=1.14.2
-ARG OTP_VERSION=25.2
-ARG DEBIAN_VERSION=bullseye-20220801-slim
+ARG ELIXIR_VERSION=1.14.3
+ARG OTP_VERSION=25.2.2
+ARG DEBIAN_VERSION=bullseye-20230109-slim
+ARG NODE_VERSION=19.5.0
+ARG NODE_DEBIAN_VERSION=bullseye-slim
 
 ARG BUILDER_IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-debian-${DEBIAN_VERSION}"
 ARG RUNNER_IMAGE="debian:${DEBIAN_VERSION}"
+ARG NODE_IMAGE="node:${NODE_VERSION}-${NODE_DEBIAN_VERSION}"
+
+FROM ${NODE_IMAGE} AS npm
+
+COPY assets/package* ./assets/
+RUN npm -C assets ci
 
 FROM ${BUILDER_IMAGE} as builder
 
@@ -51,6 +59,7 @@ COPY priv priv
 COPY lib lib
 
 COPY assets assets
+COPY --from=npm assets/node_modules assets/node_modules
 
 # compile assets
 RUN mix assets.deploy

@@ -12,21 +12,14 @@ config :phx_app_template,
 
 # Configures the endpoint
 config :phx_app_template, PhxAppTemplateWeb.Endpoint,
+  adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
-  render_errors: [view: PhxAppTemplateWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    formats: [html: PhxAppTemplateWeb.ErrorHTML, json: PhxAppTemplateWeb.ErrorJSON],
+    layout: false
+  ],
   pubsub_server: PhxAppTemplate.PubSub,
   live_view: [signing_salt: "8nMIU/pZ"]
-
-config :tailwind,
-  version: "3.1.8",
-  default: [
-    args: ~w(
-      --config=tailwind.config.js
-      --input=css/app.css
-      --output=../priv/static/assets/app.css
-    ),
-    cd: Path.expand("../assets", __DIR__)
-  ]
 
 # Configures the mailer
 #
@@ -37,21 +30,30 @@ config :tailwind,
 # at the `config/runtime.exs`.
 config :phx_app_template, PhxAppTemplate.Mailer, adapter: Swoosh.Adapters.Local
 
-# Swoosh API client is needed for adapters other than SMTP.
-config :swoosh, :api_client, false
-
-# Use timestamptz
-config :phx_app_template, PhxAppTemplate.Repo, migration_timestamps: [type: :timestamptz]
-
 # Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.14.29",
+  version: "0.14.41",
   default: [
     args:
       ~w(js/app.ts --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
+
+# Configure tailwind (the version is required)
+config :tailwind,
+  version: "3.2.4",
+  default: [
+    args: ~w(
+    --config=tailwind.config.js
+    --input=css/app.css
+    --output=../priv/static/assets/app.css
+  ),
+    cd: Path.expand("../assets", __DIR__)
+  ]
+
+# Use timestamptz
+config :phx_app_template, PhxAppTemplate.Repo, migration_timestamps: [type: :timestamptz]
 
 # Configures Elixir's Logger
 config :logger, :console,

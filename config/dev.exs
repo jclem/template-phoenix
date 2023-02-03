@@ -70,10 +70,12 @@ config :phx_app_template, PhxAppTemplateWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/phx_app_template_web/(live|views)/.*(ex)$",
-      ~r"lib/phx_app_template_web/templates/.*(eex)$"
+      ~r"lib/phx_app_template_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
+
+# Enable dev routes for dashboard and mailbox
+config :phx_app_template, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
@@ -84,3 +86,6 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# Disable swoosh api client as it is only required for production adapters.
+config :swoosh, :api_client, false
