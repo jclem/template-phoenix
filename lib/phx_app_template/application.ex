@@ -7,6 +7,8 @@ defmodule PhxAppTemplate.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = Application.get_env(:libcluster, :topologies) || []
+
     children = [
       # Start the Telemetry supervisor
       PhxAppTemplateWeb.Telemetry,
@@ -17,7 +19,9 @@ defmodule PhxAppTemplate.Application do
       # Start Finch
       {Finch, name: PhxAppTemplate.Finch},
       # Start the Endpoint (http/https)
-      PhxAppTemplateWeb.Endpoint
+      PhxAppTemplateWeb.Endpoint,
+      # Start clustering
+      {Cluster.Supervisor, [topologies, [name: App.ClusterSupervisor]]}
       # Start a worker by calling: PhxAppTemplate.Worker.start_link(arg)
       # {PhxAppTemplate.Worker, arg}
     ]

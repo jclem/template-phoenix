@@ -52,7 +52,8 @@ defmodule PhxAppTemplate.MixProject do
       {:gettext, "~> 0.22"},
       {:jason, "~> 1.4"},
       {:ecto_psql_extras, "~> 0.7"},
-      {:bandit, "~> 0.6"}
+      {:bandit, "~> 0.6"},
+      {:libcluster, "~> 3.3"}
     ]
   end
 
