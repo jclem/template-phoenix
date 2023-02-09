@@ -1,6 +1,6 @@
 # Phoenix App Template
 
-This is a template repository for Phoenix apps deployed to Fly.io
+This is a template repository for Phoenix apps deployed to Fly.io.
 
 This app has a default name and module, "PhxAppTemplate" and a script in
 `script/rename` for changing it.
@@ -17,7 +17,7 @@ To start your Phoenix server:
 - Install npm dependencies with `npm -C assets ci`
 - Create and migrate your database with `mix ecto.setup`
 - Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix
-  phx.server`
+phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
