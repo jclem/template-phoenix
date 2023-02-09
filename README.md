@@ -11,6 +11,17 @@ Provide a module name followed by an app name to rename it:
 $ script/rename MyApp my_app
 ```
 
+To enable deployments:
+
+- Create a Fly app
+- Set `ADMIN_USERNAME`/`ADMIN_PASSWORD` secrets
+- Set `DATABASE_URL` secret
+- Set `RELEASE_COOKIE` secret (using `mix phx.gen.secret` is fine)
+- Set `FLY_API_TOKEN` _repository_ secret
+- Un-comment the deployment job in
+  [.github/workflows/ci-deploy.yml](.github/workflows/ci-deploy.yml) and update
+  its environment URL
+
 To start your Phoenix server:
 
 - Install dependencies with `mix deps.get`
