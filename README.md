@@ -24,9 +24,8 @@ To enable deployments:
 
 To start your Phoenix server:
 
-- Install dependencies with `mix deps.get`
 - Install npm dependencies with `npm -C assets ci`
-- Create and migrate your database with `mix ecto.setup`
+- Run `mix setup` to install and setup dependencies
 - Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix
 phx.server`
 
@@ -37,8 +36,7 @@ guides](https://hexdocs.pm/phoenix/deployment.html).
 
 ## Additions
 
-- TailwindCSS
-- Node name generated from Fly app and IP
+- Libcluster on Fly.io
 - LiveDashboard enabled via basic auth in production
 - script/observer for opening observer on the running app
 - Other small ergonomic changes (e.g. `use PhxAppTemplate, :schema`, see
