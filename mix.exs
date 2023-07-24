@@ -53,7 +53,8 @@ defmodule PhxAppTemplate.MixProject do
       {:jason, "~> 1.4"},
       {:ecto_psql_extras, "~> 0.7"},
       {:bandit, "~> 0.7"},
-      {:libcluster, "~> 3.3"}
+      {:libcluster, "~> 3.3"},
+      {:plug_cowboy, "~> 2.6", only: :dev}
     ]
   end
 
