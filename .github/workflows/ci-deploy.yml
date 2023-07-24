@@ -1,22 +1,22 @@
 name: CI & Deploy
 
 on:
-  push: {branches: [main]}
-  pull_request: {branches: [main]}
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
   workflow_dispatch:
 
 jobs:
   test:
     name: Run tests
     runs-on: ubuntu-latest
-    env: {MIX_ENV: test}
+    env: { MIX_ENV: test }
     timeout-minutes: 10
 
     services:
       db:
         image: postgres:15
-        env: {POSTGRES_PASSWORD: postgres}
-        ports: ['5432:5432']
+        env: { POSTGRES_PASSWORD: postgres }
+        ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -34,7 +34,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-mix-
       - uses: erlef/setup-beam@v1
-        with: {otp-version: 25.2, elixir-version: 1.14.2}
+        with: { otp-version: 26.0.2, elixir-version: 1.15.4 }
       - run: mix deps.get
       - run: mix format --check-formatted
       - run: mix test

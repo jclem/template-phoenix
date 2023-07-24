@@ -12,11 +12,11 @@
 #   - https://pkgs.org/ - resource for finding needed packages
 #   - Ex: hexpm/elixir:1.13.4-erlang-25.0.4-debian-bullseye-20210902-slim
 #
-ARG ELIXIR_VERSION=1.14.4
-ARG OTP_VERSION=25.3
-ARG DEBIAN_VERSION=bullseye-20230227-slim
-ARG NODE_VERSION=19.8.1
-ARG NODE_DEBIAN_VERSION=bullseye-slim
+ARG ELIXIR_VERSION=1.15.4
+ARG OTP_VERSION=26.0.2
+ARG DEBIAN_VERSION=bookworm-20230612-slim
+ARG NODE_VERSION=20.5.0
+ARG NODE_DEBIAN_VERSION=bookworm-slim
 
 ARG BUILDER_IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-debian-${DEBIAN_VERSION}"
 ARG RUNNER_IMAGE="debian:${DEBIAN_VERSION}"
